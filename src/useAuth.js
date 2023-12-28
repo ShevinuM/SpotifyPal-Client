@@ -21,6 +21,7 @@ export default function useAuth(code) {
 				console.log(err.message);
 				window.location = "/";
 			});
+
 	}, [code]);
 
 	useEffect(() => {
@@ -40,6 +41,7 @@ export default function useAuth(code) {
 		}, (expiresIn - 60) * 1000);
 
 		return () => clearInterval(interval);
+
 	}, [refreshToken, expiresIn]);
 
 	return accessToken;
